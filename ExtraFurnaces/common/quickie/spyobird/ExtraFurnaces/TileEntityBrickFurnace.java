@@ -222,7 +222,7 @@ public class TileEntityBrickFurnace extends TileEntity implements ISidedInventor
      */
     public int getCookProgressScaled(int par1)
     {
-        return this.furnaceCookTime * par1 / 200;
+        return this.furnaceCookTime * par1 / 600;
     }
 
     @SideOnly(Side.CLIENT)
@@ -235,7 +235,7 @@ public class TileEntityBrickFurnace extends TileEntity implements ISidedInventor
     {
         if (this.currentItemBurnTime == 0)
         {
-            this.currentItemBurnTime = 200;
+            this.currentItemBurnTime = 600;
         }
 
         return this.furnaceBurnTime * par1 / this.currentItemBurnTime;
@@ -289,7 +289,7 @@ public class TileEntityBrickFurnace extends TileEntity implements ISidedInventor
             {
                 ++this.furnaceCookTime;
 
-                if (this.furnaceCookTime == 200)
+                if (this.furnaceCookTime == 600)
                 {
                     this.furnaceCookTime = 0;
                     this.smeltItem();
@@ -382,22 +382,23 @@ public class TileEntityBrickFurnace extends TileEntity implements ISidedInventor
 
                 if (block == Block.woodSingleSlab)
                 {
-                    return 300;
+                    return 600;
                 }
 
                 if (block.blockMaterial == Material.wood)
                 {
-                    return 600;
+                    return 1200;
                 }
             }
 
-            if (item instanceof ItemTool && ((ItemTool) item).getToolMaterialName().equals("WOOD")) return 400;
-            if (item instanceof ItemSword && ((ItemSword) item).getToolMaterialName().equals("WOOD")) return 400;
-            if (item instanceof ItemHoe && ((ItemHoe) item).getMaterialName().equals("WOOD")) return 400;
-            if (i == Item.stick.itemID) return 200;
-            if (i == Item.coal.itemID) return 4000;
-            if (i == Block.sapling.blockID) return 200;
-            if (i == Item.blazeRod.itemID) return 4800;
+            if (item instanceof ItemTool && ((ItemTool) item).getToolMaterialName().equals("WOOD")) return 800;
+            if (item instanceof ItemSword && ((ItemSword) item).getToolMaterialName().equals("WOOD")) return 800;
+            if (item instanceof ItemHoe && ((ItemHoe) item).getMaterialName().equals("WOOD")) return 800;
+            if (i == Item.stick.itemID) return 400;
+            if (i == Item.coal.itemID) return 8100;
+            if (i == Block.sapling.blockID) return 400;
+            if (i == Item.blazeRod.itemID) return 21600;
+            if (i == Item.bucketLava.itemID) return 96000;
             return GameRegistry.getFuelValue(par0ItemStack);
         }
     }

@@ -2,6 +2,10 @@ package quickie.spyobird.ExtraFurnaces;
 
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.EnumToolMaterial;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.EnumHelper;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -25,6 +29,11 @@ public class ExtraFurnaces
     public static Block BrickFurnaceIdle;
     public static Block BrickFurnaceActive;
     
+    public static Item IngotSteel;
+    public static Item SwordSteel;
+    
+    public final EnumToolMaterial Steel = EnumHelper.addToolMaterial("Steel", 2, 850, 6.5F, 3.0F, 7);
+    
     @EventHandler
     public void load(FMLInitializationEvent event)
     {
@@ -34,6 +43,37 @@ public class ExtraFurnaces
         GameRegistry.registerBlock(BrickFurnaceIdle, "BrickFurnaceIdle");
         GameRegistry.registerBlock(BrickFurnaceActive, "BrickFurnaceActive");
         
+        //Bloomery
+        GameRegistry.addRecipe(new ItemStack(ExtraFurnaces.BrickFurnaceIdle, 1), new Object[]
+        {
+        "###",
+        "# #",
+        "###",
+        '#', Block.brick
+        });
+        GameRegistry.addRecipe(new ItemStack(ExtraFurnaces.BrickFurnaceIdle, 1), new Object[]
+        {
+        "YYY",
+        "YXY",
+        "###",
+        '#', Block.brick, 'X', Block.furnaceIdle, 'Y', Item.brick
+        });
+ 
+        IngotSteel = new IngotSteel(6004);
+        SwordSteel = new ItemModSword(6005, this.Steel).setUnlocalizedName("SwordSteel");
+        
+        GameRegistry.registerItem(IngotSteel, "IngotSteel");    
+        GameRegistry.registerItem(SwordSteel, "SwordSteel");    
+        
+        //Steel Sword
+        GameRegistry.addRecipe(new ItemStack(ExtraFurnaces.SwordSteel, 1), new Object[]
+        {
+        "X",
+        "X",    
+        "Y",
+        'X', ExtraFurnaces.IngotSteel, 'Y', Item.stick
+        });        
+           
         GameRegistry.registerTileEntity(TileEntityBrickFurnace.class, "tileentitybrickfurnace");
         NetworkRegistry.instance().registerGuiHandler(this, guihandler);
     }
@@ -43,5 +83,8 @@ public class ExtraFurnaces
     {
         LanguageRegistry.addName(BrickFurnaceIdle, "Bloomery");
         LanguageRegistry.addName(BrickFurnaceActive, "Bloomery");
+        
+        LanguageRegistry.addName(IngotSteel, "Steel Ingot");
+        LanguageRegistry.addName(SwordSteel, "Steel Sword");
     }
 }

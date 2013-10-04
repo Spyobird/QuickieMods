@@ -25,6 +25,8 @@ public class BlockGlowstoneTorch extends Block
         super(id, Material.circuits);
         this.setUnlocalizedName("GlowstoneTorch");
         this.setTickRandomly(true);
+        this.setHardness(0.0F);
+        this.setLightValue(1.0F);
         this.setCreativeTab(CreativeTabs.tabDecorations);
     }
     

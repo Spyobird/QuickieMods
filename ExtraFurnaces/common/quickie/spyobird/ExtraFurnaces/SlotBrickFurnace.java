@@ -97,18 +97,6 @@ public class SlotBrickFurnace extends Slot
             }
         }
 
-        this.field_75228_b = 0;
-
-        GameRegistry.onItemSmelted(thePlayer, par1ItemStack);
-
-        if (par1ItemStack.itemID == Item.ingotIron.itemID)
-        {
-            this.thePlayer.addStat(AchievementList.acquireIron, 1);
-        }
-
-        if (par1ItemStack.itemID == Item.fishCooked.itemID)
-        {
-            this.thePlayer.addStat(AchievementList.cookFish, 1);
-        }
+        this.field_75228_b = 0;       
     }
 }

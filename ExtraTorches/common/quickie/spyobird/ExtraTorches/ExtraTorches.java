@@ -1,7 +1,6 @@
 package quickie.spyobird.ExtraTorches;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockGlowStone;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;

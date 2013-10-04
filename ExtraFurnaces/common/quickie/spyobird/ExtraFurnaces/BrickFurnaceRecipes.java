@@ -28,10 +28,13 @@ public class BrickFurnaceRecipes
 
     private BrickFurnaceRecipes()
     {
-        this.addSmelting(Block.oreIron.blockID, new ItemStack(Item.ingotIron), 2.0F);
-        this.addSmelting(Block.oreGold.blockID, new ItemStack(Item.ingotGold), 2.4F);
-        this.addSmelting(Block.cobblestone.blockID, new ItemStack(Block.stone), 0.2F);
-        this.addSmelting(Block.wood.blockID, new ItemStack(Item.coal, 1, 1), 1.6F);
+        this.addSmelting(Block.oreIron.blockID, new ItemStack(ExtraFurnaces.IngotSteel), 4.0F);
+        this.addSmelting(Block.oreGold.blockID, new ItemStack(Item.ingotGold), 4.8F);
+        this.addSmelting(Block.cobblestone.blockID, new ItemStack(Block.stone), 0.4F);
+        this.addSmelting(Block.wood.blockID, new ItemStack(Item.coal, 2, 1), 3.2F);
+        this.addSmelting(Item.clay.itemID, new ItemStack(Item.brick, 2), 1.2F);
+        this.addSmelting(Block.cobblestone.blockID, new ItemStack(Block.stone), 0.4F);
+        this.addSmelting(Block.blockClay.blockID, new ItemStack(Block.field_111032_cD), 1.4F);
 
     }
 
